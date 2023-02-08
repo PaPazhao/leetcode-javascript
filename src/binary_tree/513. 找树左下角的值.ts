@@ -1,6 +1,8 @@
 // 513. 找树左下角的值
 // 中等
 // https://leetcode.cn/problems/find-bottom-left-tree-value/description/
+import TreeNode from "./TreeNode"
+
 function findBottomLeftValue(root: TreeNode | null): number {
   let queue = [root], ans = 0
   while (queue.length) {
