@@ -4,19 +4,20 @@
 import TreeNode from "./TreeNode"
 
 function findBottomLeftValue(root: TreeNode | null): number {
+  if (root === null) { return 0 }
   let queue = [root], ans = 0
   while (queue.length) {
-      ans = queue[0].val
-      const next: TreeNode[] = []
-      for (const node of queue) {
-          if (node.left) {
-              next.push(node.left)
-          }
-          if (node.right) {
-              next.push(node.right)
-          }
+    ans = queue[0]!.val
+    const next: TreeNode[] = []
+    for (const node of queue) {
+      if (node!.left) {
+        next.push(node!.left)
       }
-      queue = next
+      if (node!.right) {
+        next.push(node!.right)
+      }
+    }
+    queue = next
   }
   return ans
 };
